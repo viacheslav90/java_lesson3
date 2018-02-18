@@ -26,17 +26,10 @@ public class HomePage extends BasePage {
     *  Method open refregerator category
      */
     public RefrigeratorPage openRefrigeratorCategory(){
-        WebDriverWait wait = new WebDriverWait(this.driver,10);
+        WebDriverWait wait = new WebDriverWait(this.driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(REFRIGERATOR_LINK_LOCATOR));
         this.moveAndClick(REFRIGERATOR_LINK_LOCATOR);
         return new RefrigeratorPage(this.driver);
-    }
-
-    /*
-    *  Method close browser
-     */
-    public void closeBrowser(){
-        this.driver.close();
     }
 
 }

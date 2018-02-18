@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
@@ -12,7 +13,6 @@ public class BasePage {
     protected static final String BASE_URL = "https://onliner.by/";
 
     private final WebDriver driver;
-
     /*
     *  Constructor
     */
@@ -63,5 +63,12 @@ public class BasePage {
         WebElement selectElement = this.driver.findElement(elementLocation);
         Select select = new Select(selectElement);
         select.selectByValue(value);
+    }
+
+    /*
+     *  Method close browser
+     */
+    public void closeBrowser(){
+        this.driver.close();
     }
 }

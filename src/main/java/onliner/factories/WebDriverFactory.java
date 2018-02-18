@@ -13,5 +13,4 @@ public class WebDriverFactory {
         } else
             return new FirefoxDriver();
     }
-
 }

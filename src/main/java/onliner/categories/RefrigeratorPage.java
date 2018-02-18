@@ -88,11 +88,4 @@ public class RefrigeratorPage extends BasePage{
         return expectedPrice;
     }
 
-    /*
-     *  Method close browser
-     */
-    public void closeBrowser(){
-        this.driver.close();
-    }
-
 }
