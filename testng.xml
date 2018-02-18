@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Test" parallel="none" allow-return-values="true">
-    <test name="LoginTest"  preserve-order="false">
+    <test name="Filter test and price test"  preserve-order="false">
         <classes>
             <class name="onliner.Test" />
         </classes>
