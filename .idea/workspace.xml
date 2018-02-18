@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68b7c29f-6c36-48b7-94a7-1951e31842e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/onliner/BasePage.java" afterPath="$PROJECT_DIR$/src/main/java/onliner/BasePage.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/onliner/HomePage.java" afterPath="$PROJECT_DIR$/src/main/java/onliner/HomePage.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/onliner/categories/RefrigeratorPage.java" afterPath="$PROJECT_DIR$/src/main/java/onliner/categories/RefrigeratorPage.java" />
@@ -32,18 +31,18 @@
       <file leaf-file-name="BasePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/onliner/BasePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            <state relative-caret-position="187">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-                <element signature="e#842#843#0" expanded="true" />
-                <element signature="e#906#907#0" expanded="true" />
-                <element signature="e#1366#1367#0" expanded="true" />
-                <element signature="e#1437#1438#0" expanded="true" />
-                <element signature="e#1857#1858#0" expanded="true" />
-                <element signature="e#1892#1893#0" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="e#825#826#0" expanded="true" />
+                <element signature="e#889#890#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
+                <element signature="e#1420#1421#0" expanded="true" />
+                <element signature="e#1840#1841#0" expanded="true" />
+                <element signature="e#1875#1876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,8 +51,8 @@
       <file leaf-file-name="HomePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/onliner/HomePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="153">
+              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RefrigeratorPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RefrigeratorPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/onliner/categories/RefrigeratorPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+            <state relative-caret-position="1530">
+              <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebDriverFactory.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebDriverFactory.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/onliner/factories/WebDriverFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,10 +145,10 @@
         <option value="$PROJECT_DIR$/src/main/java/WebDriverFactory.java" />
         <option value="$PROJECT_DIR$/testng.xml" />
         <option value="$PROJECT_DIR$/src/test/java/onliner/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/onliner/factories/WebDriverFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/onliner/BasePage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/onliner/categories/RefrigeratorPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/onliner/HomePage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/onliner/BasePage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/onliner/factories/WebDriverFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/onliner/categories/RefrigeratorPage.java" />
       </list>
     </option>
   </component>
@@ -463,7 +462,7 @@
       <updated>1518968306824</updated>
       <workItem from="1518968308849" duration="7608000" />
       <workItem from="1518976029130" duration="7372000" />
-      <workItem from="1518987387364" duration="824000" />
+      <workItem from="1518987387364" duration="1444000" />
     </task>
     <servers />
   </component>
@@ -500,7 +499,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15804000" />
+    <option name="totallyTimeSpent" value="16424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -620,14 +619,14 @@
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1892#1893#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -646,14 +645,14 @@
           <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1892#1893#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -735,34 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/onliner/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1892#1893#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/onliner/factories/WebDriverFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/onliner/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -779,18 +750,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/onliner/HomePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/onliner/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/onliner/categories/RefrigeratorPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+        <state relative-caret-position="1530">
+          <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/onliner/factories/WebDriverFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

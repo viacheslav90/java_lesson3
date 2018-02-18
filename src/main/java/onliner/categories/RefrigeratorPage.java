@@ -11,6 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static java.lang.Thread.sleep;
 import static java.util.regex.Pattern.compile;
+
+/*
+*  Class describe Refregerators page
+ */
 public class RefrigeratorPage extends BasePage{
 
     // All checkboxes on page locator
@@ -77,9 +81,9 @@ public class RefrigeratorPage extends BasePage{
             if(refregeratorName.equals(refrigeratorsURLs.get(i).getText()))
                 expectedRefrigeratorIndex = i;
         }
-        Pattern patern = compile("[-]?[0-9]+(,[0-9]+)?");
+        Pattern pattern = compile("[-]?[0-9]+(,[0-9]+)?");
         String price = refrigeratorPricesURLs.get(expectedRefrigeratorIndex).getText();
-        Matcher matcher = patern.matcher(price);
+        Matcher matcher = pattern.matcher(price);
         String expectedPrice = "";
         StringBuilder sb = new StringBuilder(expectedPrice);
         while (matcher.find()) {

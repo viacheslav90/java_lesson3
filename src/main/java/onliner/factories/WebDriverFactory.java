@@ -7,6 +7,9 @@ public class WebDriverFactory {
 
     private static WebDriver webDriver = null;
 
+    /*
+    *  WebDriver factory
+     */
     public static WebDriver getWebDriver(){
         if (webDriver != null) {
             return webDriver;

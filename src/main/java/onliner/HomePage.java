@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/*
+ *  Class describe Home page
+ */
 public class HomePage extends BasePage {
 
     // Refregerator categorie page locator
