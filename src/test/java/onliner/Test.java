@@ -1,42 +1,63 @@
 package onliner;
 
-import onliner.categories.RefrigeratorPage;
-import onliner.factories.WebDriverFactory;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import java.util.List;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.*;
 
-public class Test extends Assert{
+public class Test {
 
+    private WebDriver driver;
     private HomePage homePage;
-    private RefrigeratorPage refrigeratorPage;
+    private CataloguePage cataloguePage;
+    private CategoryPage categoryPage;
+
 
     @BeforeTest
-    private void setUpBeforeTest(){
-        this.homePage = new HomePage(WebDriverFactory.getWebDriver());
+    private void beforeTest() {
+        driver = new FirefoxDriver();
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
-    @AfterTest
-    private void tearDown(){
-        this.refrigeratorPage.closeBrowser();
+    @BeforeClass
+    private void beforeClass() {
+        homePage = PageFactory.initElements(driver, HomePage.class);
+        cataloguePage = PageFactory.initElements(driver, CataloguePage.class);
+        categoryPage = PageFactory.initElements(driver, CategoryPage.class);
+    }
+
+    @AfterClass
+    private void closeDriver() {
+        driver.quit();
+    }
+
+    @BeforeMethod
+    private void openHomePage() {
+        homePage.navigateToHomePage();
     }
 
 
-    /*
-    * Checking of filtering refregerators and correct price
-     */
     @org.testng.annotations.Test
-    private void CorrectFilteringAndRefrigeratorPriceTest(){
-        refrigeratorPage = this.homePage.openRefrigeratorCategory();
-        String[] checkboxName = {"ATLANT"};
-        refrigeratorPage.checkCheckbox(checkboxName);
-        List<WebElement> refrigeratorURLs = refrigeratorPage.getAllRefrigeratorsURLs();
-        for (int i = 0; i < refrigeratorURLs.size(); i++){
-            assertTrue(refrigeratorURLs.get(i).getText().contains("ATLANT"));
-        }
-        String price = refrigeratorPage.getRefrigeratorPrice("Холодильник ATLANT ХМ 6325-101");
-        assertEquals(price, "659,00");
+    public void  getThirdWebElementImage() {
+        homePage.openCatalogue();
+        cataloguePage.clickMobPhonesBtn();
+        String srcUrl = categoryPage.getAllImageSrc().get(2);
+        System.out.println(srcUrl);
+    }
+
+    @org.testng.annotations.Test
+    public void displayFirstSmartphonePrice() {
+        homePage.openCatalogue();
+        cataloguePage.clickMobPhonesBtn();
+        String price = categoryPage.getProductPriceByIndex(1);
+        System.out.println(price);
+    }
+
+    @org.testng.annotations.Test
+    public void selectFilterCheckbox() {
+        homePage.openCatalogue();
+        cataloguePage.clickMobPhonesBtn();
+        categoryPage.checkFilterCheckbox(new String []{"5 - 5.5\""});
     }
 }
