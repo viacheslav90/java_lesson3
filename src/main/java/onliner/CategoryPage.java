@@ -15,37 +15,40 @@ import java.util.regex.Pattern;
 import static java.lang.Thread.sleep;
 import static java.util.regex.Pattern.compile;
 
+
 public class CategoryPage extends BasePage {
 
-    private final static String ALL_CHECKBOXES_CSS = ".schema-filter__checkbox-text";
-    private final static String ALL_PRODUCT_URLS_CSS = ".schema-product__title";
-    private final static String ALL_PRODUCT_PRICES_URLS_CSS = ".schema-product__price a";
-    private final static String ALL_PRODUCT_IMAGES_XPATH = "//*[@id='schema-products']/div/div/div/div/a/img";
+
+    private final static String allCheckboxesCss = ".schema-filter__checkbox-text";
+    private final static String allProductUrlsCss = ".schema-product__title";
+    private final static String allProductPricesUrlsXpath = "//*[@id='schema-products']/div/div/div/div/div/div[1]/div[1]/a";
+    private final static String allProductImagesXpath = "//*[@id='schema-products']/div/div/div/div/a/img";
 
 
-    @FindBy(how = How.CSS, using = ALL_CHECKBOXES_CSS)
+    @FindBy(how = How.CSS, using = allCheckboxesCss)
     private List<WebElement> allCheckboxes;
 
-    @FindBy(how = How.CSS, using = ALL_PRODUCT_URLS_CSS)
+    @FindBy(how = How.CSS, using = allProductUrlsCss)
     private List<WebElement> allProductURLS;
 
-    @FindBy(how = How.CSS, using = ALL_PRODUCT_PRICES_URLS_CSS)
+    @FindBy(how = How.XPATH, using = allProductPricesUrlsXpath)
     private List<WebElement> allProductPricesURLs;
 
-    @FindBy(how = How.XPATH, using = ALL_PRODUCT_IMAGES_XPATH)
+    @FindBy(how = How.XPATH, using = allProductImagesXpath)
     private List<WebElement> allImages;
 
     public CategoryPage(WebDriver driver) {
         super(driver);
+        logger.info("Init Category page");
     }
 
 
     public void checkFilterCheckbox(String[] checkboxNames) {
         WebDriverWait wait = new WebDriverWait(this.driver, 20);
-        wait.until(ExpectedConditions.presenceOfElementLocated(new By.ByCssSelector(ALL_CHECKBOXES_CSS)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(new By.ByCssSelector(allCheckboxesCss)));
         for (WebElement checkbox : allCheckboxes) {
-            for (int i = 0; i < checkboxNames.length; i++) {
-                if (checkbox.getText().equalsIgnoreCase(checkboxNames[i])) {
+            for (String checkboxName: checkboxNames) {
+                if (checkbox.getText().equalsIgnoreCase(checkboxName)) {
                     String locationX = String.valueOf((checkbox.getLocation().getX() + 800));
                     String scroll = "window.scrollTo(0 , " + locationX +")";
                     JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -56,6 +59,7 @@ public class CategoryPage extends BasePage {
                         e.printStackTrace();
                     }
                     checkbox.click();
+                    logger.info("Select '" + checkbox.getText() + "' checkbox");
                 }
             }
         }
@@ -72,12 +76,15 @@ public class CategoryPage extends BasePage {
 
     public int getProductIndexByName(String productName) {
         WebDriverWait wait = new WebDriverWait(this.driver, 10);
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(new By.ByCssSelector(ALL_PRODUCT_PRICES_URLS_CSS)));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(new By.ByCssSelector(allProductPricesUrlsXpath)));
         int expectedProductIndex = 0;
         for (int i = 0; i < allProductURLS.size(); i++){
-            if(productName.equals(allProductURLS.get(i).getText()))
+            if(productName.equals(allProductURLS.get(i).getText())) {
+                logger.info("Product: " + productName + "has index: " + i);
                 return i;
+            }
         }
+        logger.warning("Product '" + productName + "' name was not found");
         return -1;
     }
 
@@ -90,7 +97,28 @@ public class CategoryPage extends BasePage {
         while (matcher.find()) {
             expectedPrice = matcher.group();
         }
+        logger.info("Product with index: " + index + " has price: " + expectedPrice);
         return expectedPrice;
+    }
+
+    public float calculateAvaragePrice(){
+        Pattern pattern = compile("[-]?[0-9]+(,[0-9]+)?");
+        float sumPrices = 0;
+        for (WebElement priceUrl: allProductPricesURLs) {
+            String price = priceUrl.getText();
+            Matcher matcher = pattern.matcher(price);
+            String expectedPrice = "";
+            StringBuilder sb = new StringBuilder(expectedPrice);
+            while (matcher.find()) {
+                price = matcher.group();
+            }
+            String handledPrice = price.replace(',', '.');
+            sumPrices += Float.parseFloat(handledPrice);
+        }
+        float averagePrice = sumPrices/allProductPricesURLs.size();
+        float roundedAvgPrice = roundResult(averagePrice, 2);
+        logger.info("Average price: " + roundedAvgPrice);
+        return roundedAvgPrice;
     }
 
     public List<String> getAllImageSrc() {
@@ -98,6 +126,14 @@ public class CategoryPage extends BasePage {
         for (WebElement image: allImages)
             allSrcImages.add(image.getAttribute("src"));
         return allSrcImages;
+    }
+
+    private float roundResult (float number, int precise) {
+        precise = 10^precise;
+        number = number*precise;
+        int rounded = (int) Math.round(number);
+        return (float) rounded/precise;
+
     }
 
 }

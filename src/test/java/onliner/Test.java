@@ -1,63 +1,56 @@
 package onliner;
 
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.*;
+import io.restassured.RestAssured;
+import org.testng.annotations.DataProvider;
 
-public class Test {
 
-    private WebDriver driver;
+public class Test extends BaseTest{
+
+
     private HomePage homePage;
     private CataloguePage cataloguePage;
     private CategoryPage categoryPage;
 
 
-    @BeforeTest
-    private void beforeTest() {
-        driver = new FirefoxDriver();
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-    }
-
-    @BeforeClass
-    private void beforeClass() {
-        homePage = PageFactory.initElements(driver, HomePage.class);
-        cataloguePage = PageFactory.initElements(driver, CataloguePage.class);
-        categoryPage = PageFactory.initElements(driver, CategoryPage.class);
-    }
-
-    @AfterClass
-    private void closeDriver() {
-        driver.quit();
-    }
-
-    @BeforeMethod
-    private void openHomePage() {
-        homePage.navigateToHomePage();
+    @DataProvider(name = "CheckboxNameDataProvider")
+    private static Object[][] checkboxName(){
+        return new Object[][]{{"Nokia"}, {"5 - 5.5\""}, {"2017"}, {"AMOLED"}};
     }
 
 
-    @org.testng.annotations.Test
-    public void  getThirdWebElementImage() {
-        homePage.openCatalogue();
-        cataloguePage.clickMobPhonesBtn();
+    @org.testng.annotations.Test(description = "Check 200 status code for GET request to 3-rd image")
+    private void  checkGetRequestToThirdWebElementImage() {
+        homePage = new HomePage(driver);
+        cataloguePage = homePage.openCatalogue();
+        categoryPage = cataloguePage.clickMobPhonesBtn();
         String srcUrl = categoryPage.getAllImageSrc().get(2);
         System.out.println(srcUrl);
+        RestAssured.get(srcUrl).then().assertThat().statusCode(200);
     }
 
-    @org.testng.annotations.Test
-    public void displayFirstSmartphonePrice() {
-        homePage.openCatalogue();
-        cataloguePage.clickMobPhonesBtn();
-        String price = categoryPage.getProductPriceByIndex(1);
+    @org.testng.annotations.Test(description = "Check first smartphone price")
+    private void displayFirstSmartphonePrice() {
+        homePage = new HomePage(driver);
+        cataloguePage = homePage.openCatalogue();
+        categoryPage = cataloguePage.clickMobPhonesBtn();
+        String price = categoryPage.getProductPriceByIndex(0);
         System.out.println(price);
     }
 
-    @org.testng.annotations.Test
-    public void selectFilterCheckbox() {
-        homePage.openCatalogue();
-        cataloguePage.clickMobPhonesBtn();
-        categoryPage.checkFilterCheckbox(new String []{"5 - 5.5\""});
+    @org.testng.annotations.Test(description = "Select filter checkbox", dataProvider = "CheckboxNameDataProvider")
+    private void selectFilterCheckbox(String checkbox) {
+        homePage = new HomePage(driver);
+        cataloguePage = homePage.openCatalogue();
+        categoryPage = cataloguePage.clickMobPhonesBtn();
+        categoryPage.checkFilterCheckbox(new String []{checkbox});
+    }
+
+    @org.testng.annotations.Test(description = "Check average price")
+    private void displayAvaragePrice(){
+        homePage = new HomePage(driver);
+        cataloguePage = homePage.openCatalogue();
+        categoryPage = cataloguePage.clickMobPhonesBtn();
+        float averagePrice = categoryPage.calculateAvaragePrice();
+        System.out.println("Average price is: " + averagePrice);
     }
 }

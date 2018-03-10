@@ -1,19 +1,21 @@
 package onliner;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import java.util.logging.Logger;
+
 
 public class BasePage {
 
+
     protected WebDriver driver;
-    private static String BASE_URL = "https://onliner.by";
+    protected Logger logger;
+
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-    }
-
-    protected void navigateToHomePage() {
-        driver.manage().deleteAllCookies();
-        driver.get(BASE_URL);
+        this.logger = Logger.getAnonymousLogger();
+        PageFactory.initElements(driver, this);
     }
 
 }
